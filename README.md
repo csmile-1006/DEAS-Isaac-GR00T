@@ -1,5 +1,5 @@
 <div align="left">
-  <h1> Isaac-GR00T + <a href=https://arxiv.org/abs/2510.07730>DEAS</a> + RoboCasa </h1>
+  <h1> <a href=https://arxiv.org/abs/2510.07730>DEAS</a> + Isaac-GR00T + RoboCasa </h1>
   <p style="font-size: 1.2em;">
     <a href="https://changyeon.site/deas"><strong>Website</strong></a> | 
     <a href="https://huggingface.co/datasets/changyeon/deas_robocasa"><strong>Dataset</strong></a> |
@@ -43,24 +43,24 @@ python robocasa/scripts/download_kitchen_assets.py   # Caution: Assets to be dow
 
 ## Getting started with this repo
 
-## 1. Download dataset
+### 1. Download dataset
 Download the [dataset](https://huggingface.co/datasets/changyeon/deas_robocasa) using HuggingFace cli.
 ```bash
 cd ~
 hf download changyeon/deas_robocasa --repo-type dataset
 ```
 
-## 2. Fine-Tuning GR00T N1.5
+### 2. Fine-Tuning GR00T N1.5
 ```bash
 bash bash_scripts/finetune_gr00t.sh 30000 ${NUM_GPUS} ${BATCH_SIZE}
 ```
 
-## 3. Training DEAS Critic
+### 3. Training DEAS Critic
 ```bash
 bash ./bash_scripts/train_deas_critic.sh 30000 16 0.9 0.99 0.7 ${NUM_GPUS} ${BATCH_SIZE}
 ```
 
-## 4. Evaluation
+### 4. Evaluation
 set `CKPT_PATH` to be the path of the GR00T N1.5 trained in Section 2.\
 set `CRITIC_CKPT_PATH` to be the path of the critic trained in Section 3.
 
@@ -73,10 +73,10 @@ bash ./bash_scripts/eval_deas.sh 0 ${CKPT_PATH} ${CRITIC_CKPT_PATH} ${SEED} 5 50
 ```
 
 
-# Acknowledgement
+## Acknowledgement
 This code is mainly built upon [Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T)  and [RoboCasa](https://github.com/robocasa/robocasa) repositories.
 
-# Citation
+## Citation
 ```bibtex
 @article{kim2025deas,
     title={DEAS: DEtached value learning with Action Sequence for Scalable Offline RL},
