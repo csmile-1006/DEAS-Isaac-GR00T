@@ -47,10 +47,16 @@ python robocasa/scripts/download_kitchen_assets.py   # Caution: Assets to be dow
 Download the [dataset](https://huggingface.co/datasets/changyeon/deas_robocasa) using HuggingFace cli.
 ```bash
 cd ~
-hf download changyeon/deas_robocasa --repo-type dataset
+hf download kimtaey/robocasa_mg_gr00t_100 --repo-type dataset --local-dir ./datasets
+hf download changyeon/deas_robocasa --repo-type dataset --local-dir ./datasets
 ```
 
-### 2. Fine-Tuning GR00T N1.5
+### 2-1. Fine-Tuning GR00T N1.5 with 100 demos for 24 RoboCasa tasks
+```bash
+bash bash_scripts/pre_finetune_gr00t.sh 30000 ${NUM_GPUS} ${BATCH_SIZE}
+```
+
+### 2-2. Fine-Tuning GR00T N1.5 with rollouts
 ```bash
 bash bash_scripts/finetune_gr00t.sh 30000 ${NUM_GPUS} ${BATCH_SIZE}
 ```

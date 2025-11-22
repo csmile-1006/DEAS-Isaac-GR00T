@@ -127,3 +127,4 @@ notebooks/
 test_video/
 snippets/
 MUJOCO_LOG.TXT
+datasets/
